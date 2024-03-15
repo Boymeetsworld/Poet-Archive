@@ -1,0 +1,11 @@
+<% if @poems.any? %>
+  <h2>Search Results</h2>
+  <ul>
+    <% @poems.each do |poem| %>
+      <li><%= poem['title'] %> by <%= poem['author'] %></li>
+      <li><%= poem['lines'].join('<br>') %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No poems found.</p>
+<% end %>
