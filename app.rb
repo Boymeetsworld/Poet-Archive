@@ -2,6 +2,7 @@ require 'sinatra'
 require "sinatra/reloader"
 require 'httparty'
 require 'json'
+require 'uri'
 
 POETRYDB_API_BASE_URL = 'https://poetrydb.org'
 
@@ -10,9 +11,12 @@ get '/' do
 end
 
 get '/search' do
-  keyword = params[:keyword]
-  response = HTTParty.get("#{POETRYDB_API_BASE_URL}/author/#{keyword}")
-
+  
+  author = params[:author]
+  title = ERB::Util.url_encode params[:title]
+  response = HTTParty.get("#{POETRYDB_API_BASE_URL}/author,title/#{author};#{title}")
+  pp "#{POETRYDB_API_BASE_URL}/author,title/#{author};#{title}"
+  pp response
   if response.success?
     @poems = JSON.parse(response.body)
     erb :poems

@@ -2,8 +2,9 @@
   <h2>Search Results</h2>
   <ul>
     <% @poems.each do |poem| %>
-      <li><%= poem['title'] %> by <%= poem['author'] %></li>
-      <li><%= poem['lines'].join('<br>') %></li>
+      <li><strong>Author:</strong> <%= poem['author'] %></li>
+      <li><strong>Title:</strong> <%= poem['title'] %></li>
+      <li><strong>Lines:</strong> <%= poem['lines'].join('<br>') %></li>
     <% end %>
   </ul>
 <% else %>
