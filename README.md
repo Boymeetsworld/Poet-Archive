@@ -1,18 +1,10 @@
-# sinatra-template
+# Poetry Archive
+Use this app to search the poetry database and discover new poems from your favorite poets. 
 
-Use this repository to create new Sinatra apps. 
+this app uses imported data from the `poetrydbAPI` to enhance your search experience:
 
-Optionally, to use `ActiveRecord` for database operations, add to the `app.rb`:
+To run this app simply run the command:
 
-```ruby
-require "sinatra/activerecord"
 ```
-
-And in the `config/environment.rb` file add this code block:
-
-```ruby
-configure do
-  # setup a database connection
-  set(:database, { adapter: "sqlite3", database: "db/development.sqlite3" })
-end
+Ruby app.rb
 ```
