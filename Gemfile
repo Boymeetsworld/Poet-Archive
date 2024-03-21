@@ -5,9 +5,12 @@ ruby "3.2.1"
 
 gem "sinatra"
 gem "sinatra-contrib"
+gem 'activesupport' 
+gem 'rack'
+gem 'rackup' 
 
 # Use Puma as the app server
-gem "puma", "~> 5.0"
+#gem "puma", "~> 5.0"
 
 # use active record
 gem "sinatra-activerecord"
