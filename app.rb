@@ -4,6 +4,9 @@ require 'httparty'
 require 'json'
 require 'uri'
 
+set :public_folder, File.dirname(__FILE__) + '/public'
+
+
 POETRYDB_API_BASE_URL = 'https://poetrydb.org'
 
 get '/' do

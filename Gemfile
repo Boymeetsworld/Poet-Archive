@@ -6,13 +6,13 @@ ruby "3.2.1"
 gem "sinatra"
 gem "sinatra-contrib"
 gem 'activesupport' 
-gem 'rack'
-gem 'rackup' 
+#gem 'rack'
+#gem 'rackup' 
 gem "httparty"
 
 
 # Use Puma as the app server
-#gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 
 # use active record
 gem "sinatra-activerecord"
@@ -39,3 +39,5 @@ group :test do
   gem "webdrivers"
   gem "i18n"
 end
+
+gem "tailwindcss-rails", "~> 2.3"
