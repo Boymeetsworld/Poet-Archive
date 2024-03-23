@@ -1,7 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/styles.css">
-
-
-<% if @poems.any? %>
+<% if @poems && @poems.any? %>
   <h2>Search Results</h2>
   <ul>
     <% @poems.each do |poem| %>
@@ -10,6 +7,6 @@
       <li><strong>Lines:</strong> <%= poem['lines'].join('<br>') %></li>
     <% end %>
   </ul>
-<% else %>
-  <p>No poems found.</p>
-<% end %>
+  <% else %>
+    <p>No search results found.</p>
+  <% end %>

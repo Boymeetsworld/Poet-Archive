@@ -19,12 +19,19 @@ get '/search' do
   title = ERB::Util.url_encode params[:title]
   response = HTTParty.get("#{POETRYDB_API_BASE_URL}/author,title/#{author};#{title}")
   pp "#{POETRYDB_API_BASE_URL}/author,title/#{author};#{title}"
-  pp response
+  pp response.body 
   if response.success?
-    @poems = JSON.parse(response.body)
+    begin
+      @poems = JSON.parse(response.body)
+      if @poems.empty?
+        redirect to('/')
+      end
+    rescue JSON::ParserError => e
+      puts "Error parsing JSON response: #{e.message}"
+      redirect to('/')
+    end
     erb :poems
   else
-    @error_message = "Error: #{response.code}"
-    erb :error
+    redirect to('/')
   end
 end
